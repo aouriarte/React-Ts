@@ -1,50 +1,39 @@
 import { useState, useEffect } from "react";
-import { Player } from "./types";
-import ListPlayers from "./components/ListPlayers";
-import AddPlayer from "./components/AddPlayer";
+import { User } from "./types";
+import ListUsers from "./components/ListUsers";
+import AddUser from "./components/AddUser";
 import "./App.css";
 
 interface AppState {
-  players: Player[]; // Array<Task>
+  users: User[]; // Array<User>
 }
 
 const Initial_State = [
   {
-    fullName: "Lionel Andrés Messi Cuccittini",
-    age: 35,
-    name: "Messi",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
-    dorsal: 10,
-    position: "Delantero",
-    country: "Argentina",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png",
-  },
-  {
-    fullName: "Cristiano Ronaldo dos Santos Aveiro",
-    age: 37,
-    name: "Ronaldo",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/2/23/Cristiano_Ronaldo_WC2022_-_01.jpg",
-    dorsal: 7,
-    position: "Delantero",
-    country: "Portugal",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1200px-Flag_of_Portugal.svg.png",
+    name: "Alexis",
+    lastName: "Uriarte",
+    nick: "@aouriarte",
+    avatar:
+      "https://static.wikia.nocookie.net/king-of-thieves/images/a/ab/White_shadow.png",
   },
 ];
 
 function App() {
-  const [players, setPlayers] = useState<AppState["players"]>([]);
+  const [users, setUsers] = useState<AppState["users"]>([]);
 
   useEffect(() => {
-    setPlayers(Initial_State);
-  });
+    setUsers(Initial_State);
+  }, []);
+
+  // guardar datos del form
+  const handleNewUser = (newUser: User): void => {
+    setUsers((users) => [...users, newUser]);
+  };
 
   return (
     <div className="App">
-      <h1>Lista de jugadores</h1>
-      <ListPlayers players={players} />
-      <AddPlayer />
+      <ListUsers users={users} />
+      <AddUser onNewUser={handleNewUser} />
     </div>
   );
 }

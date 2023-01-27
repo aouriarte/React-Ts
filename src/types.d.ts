@@ -1,10 +1,6 @@
-export interface Player {
-  fullName: string;
-  age: number;
+export interface User {
   name: string;
-  image: string;
-  dorsal: number;
-  position: string;
-  country: string;
-  flag: string;
+  lastName: string;
+  nick: string;
+  avatar?: string;
 }
