@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Player } from "./types";
 import ListPlayers from "./components/ListPlayers";
+import AddPlayer from "./components/AddPlayer";
 import "./App.css";
 
 interface AppState {
@@ -43,6 +44,7 @@ function App() {
     <div className="App">
       <h1>Lista de jugadores</h1>
       <ListPlayers players={players} />
+      <AddPlayer />
     </div>
   );
 }
