@@ -54,36 +54,32 @@ const AddUser = ({ onNewUser }: FormProps) => {
 
   const handleClear = () => {
     // setInputValues(INITIAL_STATE)
-  }
+  };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Nombre:</label>
         <input
           type="text"
           name="name"
           value={inputValues.name}
           onChange={handleChange}
-          placeholder="Alexis"
+          placeholder="Primer nombre"
         />
-        <label>Apellido:</label>
         <input
           type="text"
           name="lastName"
           value={inputValues.lastName}
           onChange={handleChange}
-          placeholder="Uriarte"
+          placeholder="Apellido"
         />
-        <label>Usuario:</label>
         <input
           type="text"
           name="nick"
           value={inputValues.nick}
           onChange={handleChange}
-          placeholder="@aouriarte"
+          placeholder="@usuario"
         />
-        <label>Avatar:</label>
         <input
           name="avatar"
           value={inputValues.avatar}

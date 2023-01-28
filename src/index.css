@@ -39,3 +39,9 @@ img {
   height: auto;
   width: 60px;
 }
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
