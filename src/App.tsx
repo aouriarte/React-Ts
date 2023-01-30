@@ -3,7 +3,6 @@ import { User } from "./types";
 import ListUsers from "./components/ListUsers";
 import AddUser from "./components/AddUser";
 import { getAllUsers } from "./services/getAllUsers";
-import "./App.css";
 
 interface AppState {
   users: User[]; // Array<User>
@@ -32,9 +31,15 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="grid place-content-center space-y-2">
       <ListUsers users={users} />
-      <AddUser onNewUser={handleNewUser} />
+      <button
+        type="submit"
+        className="p-4 w-full border p-2 rounded-md transition bg-sky-500 hover:bg-sky-700 text-white"
+      >
+        Agregar usuario
+      </button>
+      {/* <AddUser onNewUser={handleNewUser} /> */}
     </div>
   );
 }

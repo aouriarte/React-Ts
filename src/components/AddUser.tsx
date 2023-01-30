@@ -52,13 +52,14 @@ const AddUser = ({ onNewUser }: FormProps) => {
     });
   };
 
-  const handleClear = () => {
-    // setInputValues(INITIAL_STATE)
-  };
+  // const handleClear = () => {
+  //   // setInputValues(INITIAL_STATE)
+  // };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="p-4">
+      <button>X</button>
+      <form className="flex flex-col gap-1 mb-5" onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -78,7 +79,7 @@ const AddUser = ({ onNewUser }: FormProps) => {
           name="nick"
           value={inputValues.nick}
           onChange={handleChange}
-          placeholder="@usuario"
+          placeholder="@usuario o email@.com"
         />
         <input
           name="avatar"
@@ -86,7 +87,7 @@ const AddUser = ({ onNewUser }: FormProps) => {
           onChange={handleChange}
           placeholder="Ingresa el enlace de la imagen"
         />
-        <button type="submit">Agregar</button>
+        <button type="submit" className="w-full border p-2 rounded-md transition bg-sky-500 hover:bg-sky-700 text-white">Agregar</button>
       </form>
     </div>
   );
