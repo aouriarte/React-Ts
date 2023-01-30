@@ -20,6 +20,7 @@ interface AppState {
 
 function App() {
   const [users, setUsers] = useState<AppState["users"]>([]);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     getAllUsers().then(setUsers);
@@ -31,15 +32,20 @@ function App() {
   };
 
   return (
-    <div className="grid place-content-center space-y-2">
+    <div className="grid place-content-center gap-3">
       <ListUsers users={users} />
       <button
         type="submit"
-        className="p-4 w-full border p-2 rounded-md transition bg-sky-500 hover:bg-sky-700 text-white"
+        onClick={() => {
+          setOpenModal(true);
+        }}
+        className="p-2 w-full border rounded-md transition bg-sky-500 hover:bg-sky-700 text-white mb-5"
       >
         Agregar usuario
       </button>
-      {/* <AddUser onNewUser={handleNewUser} /> */}
+      {openModal && (
+        <AddUser onNewUser={handleNewUser} closeModal={setOpenModal} />
+      )}
     </div>
   );
 }
